@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/base64"
 	"fmt"
-	"github.com/fuxiaohei/GoBlog/app/model"
+	"github.com/oyvindsk/GoBlog/app/model"
 	"github.com/fuxiaohei/GoInk"
 	"html/template"
 	"net/mail"

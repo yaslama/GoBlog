@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/fuxiaohei/GoBlog/app/utils"
+	"github.com/oyvindsk/GoBlog/app/utils"
 	"runtime"
 	"time"
 )

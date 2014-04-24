@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"github.com/fuxiaohei/GoBlog/app/model"
+	"github.com/oyvindsk/GoBlog/app/model"
 	"github.com/fuxiaohei/GoInk"
 	"path"
 	"strconv"

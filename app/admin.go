@@ -1,6 +1,6 @@
 package app
 
-import "github.com/fuxiaohei/GoBlog/app/handler"
+import "github.com/oyvindsk/GoBlog/app/handler"
 
 func registerAdminHandler() {
 	// add admin handlers

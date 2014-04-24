@@ -1,6 +1,6 @@
 package model
 
-import "github.com/fuxiaohei/GoBlog/app/utils"
+import "github.com/oyvindsk/GoBlog/app/utils"
 
 func generatePublishArticleIndex() {
 	arr := make([]int, 0)

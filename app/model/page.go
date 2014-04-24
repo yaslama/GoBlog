@@ -1,6 +1,6 @@
 package model
 
-import "github.com/fuxiaohei/GoBlog/app/utils"
+import "github.com/oyvindsk/GoBlog/app/utils"
 
 // GetPageList gets pages list and pager no matter page status.
 // In common cases, no need to get a list or pagers for public page.

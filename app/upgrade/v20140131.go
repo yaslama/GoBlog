@@ -1,7 +1,7 @@
 package upgrade
 
 import (
-	"github.com/fuxiaohei/GoBlog/app/cmd"
+	"github.com/oyvindsk/GoBlog/app/cmd"
 	"github.com/fuxiaohei/GoInk"
 	"os"
 	"path"
