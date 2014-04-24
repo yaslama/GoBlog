@@ -1,15 +1,15 @@
 <header class="cmd-header clear">
-    <h1 class="cmd-title left">读者</h1>
+    <h1 class="cmd-title left">Reader</h1>
 </header>
 <ul class="cmd-list" id="reader-list">
     <li>
-        如果删除读者，不会影响读者已有的评论；但此后该读者的新评论需要审核。
+        If you remove the reader，Does not affect the readers already commented；But the reader's comments need to be audited。
     </li>{{range .Readers}}
     <li>
         <a class="lbl lbl-blue author" href="{{.Url}}" target="_blank">{{.Author}}</a>
         <span class="email">{{.Email}}</span>
         <span class="lbl lbl-red comments">{{.Comments}}</span>
-        <a class="del" href="#">删除</a>
+        <a class="del" href="#">Delete</a>
     </li>{{end}}
 </ul>
 <script>

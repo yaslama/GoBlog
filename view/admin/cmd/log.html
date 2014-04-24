@@ -1,18 +1,18 @@
 <header class="cmd-header">
-    <h1 class="cmd-title">错误日志</h1>
+    <h1 class="cmd-title">The error log</h1>
 </header>
 <ul class="cmd-list" id="log-list">{{range .Logs}}
     <li class="log relative">
         <span class="name inline-block">{{.Name}}</span>
         <span class="time inline-block">{{DateInt64 .CreateTime "MM.DD HH:mm"}}</span>
         <pre class="text">{{.Text}}</pre>
-        <a class="remove absolute" href="/cmd/logs/?file={{.Name}}">删除</a>
+        <a class="remove absolute" href="/cmd/logs/?file={{.Name}}">Delete</a>
     </li>{{end}}
 </ul>
 <script>
     $(document).ready(function () {
         $('.remove').on("click", function () {
-            if (confirm("确认删除记录")) {
+            if (confirm("Confirm deletion of records")) {
                 var $this = $(this);
                 $.ajax({
                     type:"delete",

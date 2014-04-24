@@ -1,41 +1,41 @@
 <form id="profile" class="admin form clear form-align" action="#" method="post" name="profile-form">
     <div class="avatar grid-1-4 left text-center">
         <img src="{{.User.Avatar}}" alt="{{.User.Nick}}" class="field"/>
-        <span class="tip field inline-block">头像由 <a href="http://gravatar.com/" target="_blank" rel="no-follow">Gravatar</a> 提供</span>
+        <span class="tip field inline-block">Avatar by <a href="http://gravatar.com/" target="_blank" rel="no-follow">Gravatar</a> Provides</span>
         <p class="field">
-            <a class="btn btn-red inline-block" href="/admin/password/">修改密码</a>
+            <a class="btn btn-red inline-block" href="/admin/password/">Modify password</a>
         </p>
     </div>
     <div class="info right grid-3-4">
         <p class="field">
-            <label for="user">登录名</label>
+            <label for="user">Login name</label>
             <input id="user" type="text" name="user" value="{{.User.Name}}" required="required" class="ipt"/>
-            <span class="tip">登录的用户名</span><br/>
-            <span class="invalid lbl lbl-red hide" id="user-invalid">用户名为字母+数字，长度4-20个字符</span>
+            <span class="tip">Login user name</span><br/>
+            <span class="invalid lbl lbl-red hide" id="user-invalid">User name for letters+Digital，Length4-20Characters</span>
         </p>
         <p class="field">
-            <label for="nick">昵称</label>
+            <label for="nick">Nicknames</label>
             <input id="nick" type="text" name="nick" value="{{.User.Nick}}" required="required" class="ipt"/>
-            <span class="tip">显示在前台的称呼</span>
-            <br/><span class="invalid lbl lbl-red hide" id="nick-invalid">昵称长度2-20个字符</span>
+            <span class="tip">Displayed in the foreground</span>
+            <br/><span class="invalid lbl lbl-red hide" id="nick-invalid">Nickname length2-20Characters</span>
         </p>
         <p class="field">
-            <label for="email">邮箱</label>
+            <label for="email">Mailbox</label>
             <input id="email" type="email" name="email" value="{{.User.Email}}" required="required" class="ipt"/>
-            <span class="tip">联系邮箱，十分重要！</span>
-            <br/><span class="invalid lbl lbl-red hide" id="email-invalid">邮箱格式错误</span>
+            <span class="tip">Contact email，The importance of！</span>
+            <br/><span class="invalid lbl lbl-red hide" id="email-invalid">Mailbox format error</span>
         </p>
         <p class="field">
-            <label for="url">网址</label>
+            <label for="url">Web site</label>
             <input id="url" type="url" name="url" value="{{.User.Url}}" class="ipt"/>
-            <br/><span class="invalid lbl lbl-red hide" id="url-invalid">网址格式错误</span>
+            <br/><span class="invalid lbl lbl-red hide" id="url-invalid">Error in URL format</span>
         </p>
         <p class="field">
             <textarea class="ipt bio" name="bio" id="bio">{{.User.Bio}}</textarea>
         </p>
         <p class="field">
             <label>&nbsp;</label>
-            <button class="btn btn-blue">保存修改</button>
+            <button class="btn btn-blue">Save changes</button>
         </p>
     </div>
 </form>
@@ -57,7 +57,7 @@
                 if(!json.res){
                     alert(json.msg);
                 }else{
-                    alert("已保存");
+                    alert("Has been saved");
                 }
             });
         })

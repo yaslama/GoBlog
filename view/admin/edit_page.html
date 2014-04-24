@@ -4,43 +4,43 @@
 </style>
 <form id="article-form" class="form clear container" action="#" method="post">
     <div class="left grid-1-2">
-        <input class="ipt title" id="title" type="text" required="required" name="title" placeholder="页面标题" value="{{.Page.Title}}"/>
+        <input class="ipt title" id="title" type="text" required="required" name="title" placeholder="The page title" value="{{.Page.Title}}"/>
         <textarea name="content" id="content" class="ipt">{{Html .Page.Text}}</textarea>
     </div>
     <div class="left grid-1-2">
         <div class="preview markdown"></div>
     </div>
     <div class="form-vertical left">
-        <button class="btn btn-green left" type="button" id="attach-show">添加附件</button>
+        <button class="btn btn-green left" type="button" id="attach-show">Adding an attachment</button>
         <p class="item">
-            <span for="slug">固定链接</span>&nbsp;&nbsp;&nbsp;
-            <input id="slug" class="ipt" type="text" name="slug" required="required" placeholder="页面的唯一链接" value="{{.Page.Slug}}"/>
+            <span for="slug">Permalink</span>&nbsp;&nbsp;&nbsp;
+            <input id="slug" class="ipt" type="text" name="slug" required="required" placeholder="Only links page" value="{{.Page.Slug}}"/>
         </p>
         <p class="item">
-            <span>保存状态</span>&nbsp;&nbsp;
+            <span>Save State</span>&nbsp;&nbsp;
             <select name="status" id="status">
-                <option value="publish"{{if eq .Page.Status "publish"}} selected{{end}}>公开</option>
-                <option value="draft"{{if eq .Page.Status "draft"}} selected{{end}}>草稿</option>
+                <option value="publish"{{if eq .Page.Status "publish"}} selected{{end}}>Open</option>
+                <option value="draft"{{if eq .Page.Status "draft"}} selected{{end}}>Draft</option>
             </select>
         </p>
         <p class="item">
-            <span>允许评论</span>&nbsp;&nbsp;
+            <span>Allow comments</span>&nbsp;&nbsp;
             <select name="comment" id="is-comment">
-                <option value="1"{{if eq .Page.IsComment true}} selected{{end}}>允许</option>
-                <option value="0"{{if eq .Page.IsComment false}} selected{{end}}>关闭</option>
+                <option value="1"{{if eq .Page.IsComment true}} selected{{end}}>Allow</option>
+                <option value="0"{{if eq .Page.IsComment false}} selected{{end}}>Shut down</option>
             </select>
         </p>
         <p class="item">
-            <span>置顶链接</span>&nbsp;&nbsp;
+            <span>Top links</span>&nbsp;&nbsp;
             <select name="link" id="is-link">
-                <option value="0"{{if eq .Page.IsLinked false}} selected{{end}}>关闭</option>
-                <option value="1"{{if eq .Page.IsLinked true}} selected{{end}}>允许</option>
+                <option value="0"{{if eq .Page.IsLinked false}} selected{{end}}>Shut down</option>
+                <option value="1"{{if eq .Page.IsLinked true}} selected{{end}}>Allow</option>
             </select>
         </p>
     </div>
     <p class="submit text-right" id="article-submit">
-        <span class="invalid lbl lbl-red hide" id="slug-invalid">固定链接由字母，数字和-组成</span>
-        <button class="btn btn-blue">保存文章</button>
+        <span class="invalid lbl lbl-red hide" id="slug-invalid">Fixed link by alphabet，Numbers, and-Composition</span>
+        <button class="btn btn-blue">Save articles</button>
     </p>
 </form>
 <form class="form hide" id="attach-form" action="/admin/files/upload/" enctype="multipart/form-data" method="post">
@@ -76,7 +76,7 @@
             }
             $('#article-form').ajaxSubmit(function (json) {
                 if (json.res) {
-                    if (confirm("已保存，去查看？还是继续编辑")) {
+                    if (confirm("Has been saved，To view？Or continue editing")) {
                         window.location.href = "/admin/pages/";
                     }
                 } else {

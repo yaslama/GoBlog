@@ -3,9 +3,9 @@
         <span class="left lbl active lbl-green">&nbsp;</span>{{end}}
         <span class="name left">{{.Name}}</span>
         <span class="version left">{{.Version}}</span>{{if .HasSetting}}
-        <a class="setting left" href="/admin/plugins/{{.Key}}/">选项</a>{{end}}{{if .IsActive}}
-        <a class="deactivate lbl lbl-red right" href="#" rel="{{.Key}}">封印</a>{{else}}
-        <a class="activate lbl lbl-blue right" href="#" rel="{{.Key}}">激活</a>{{end}}
+        <a class="setting left" href="/admin/plugins/{{.Key}}/">Options</a>{{end}}{{if .IsActive}}
+        <a class="deactivate lbl lbl-red right" href="#" rel="{{.Key}}">Seal</a>{{else}}
+        <a class="activate lbl lbl-blue right" href="#" rel="{{.Key}}">Activation</a>{{end}}
         <p class="desc left">{{.Desc}}</p>
     </li>{{end}}
 </ul>
@@ -19,9 +19,9 @@
                 "plugin": p
             }, function (json) {
                 if (json.res) {
-                    $this.off("click").text("下次激活");
+                    $this.off("click").text("The next activation");
                 } else {
-                    alert("封印失败");
+                    alert("Seal failure");
                 }
             })
         });
@@ -33,9 +33,9 @@
                 "plugin": p
             }, function (json) {
                 if (json.res) {
-                    $this.off("click").text("下次封印");
+                    $this.off("click").text("Next time seals");
                 } else {
-                    alert("激活失败");
+                    alert("Activation failed");
                 }
             })
         })

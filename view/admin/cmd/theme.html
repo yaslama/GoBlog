@@ -1,6 +1,6 @@
 <header class="cmd-header clear">
-    <h1 class="cmd-title left">主题风格</h1>
-    <button class="btn left {{Setting `theme_cache`}}" id="theme-cache-btn">缓存({{Setting "theme_cache"}})</button>
+    <h1 class="cmd-title left">Theme style</h1>
+    <button class="btn left {{Setting `theme_cache`}}" id="theme-cache-btn">Cache({{Setting "theme_cache"}})</button>
 </header>
 <ul class="cmd-list" id="theme-list">{{range .Themes}}
     <li>{{if eq .Name $.CurrentTheme}}
@@ -11,7 +11,7 @@
         <span class="error-file">{{.}}</span>{{end}}
     </li>{{end}}
 </ul>
-<p>主题名对应视图中的目录。高亮的主题即当前使用的主题。单击主题名即可切换现用主题。</p>
+<p>Subject name corresponds to view directory。Highlight the theme currently used theme。Click on the topic name to switch active topics。</p>
 <script>
     $(function () {
         $('#theme-cache-btn').on("click", function (e) {
@@ -22,7 +22,7 @@
             }
             $.post("/cmd/theme/", {"cache": change}, function (json) {
                 if (json.res) {
-                    $this.removeClass("true").removeClass("false").addClass(change).text("缓存(" + change + ")");
+                    $this.removeClass("true").removeClass("false").addClass(change).text("Cache(" + change + ")");
                 }
             });
         });

@@ -1,13 +1,13 @@
 <ul id="files-list" class="admin container960 pager">
     <li class="file" id="files-btn-li">
-        <button class="btn btn-green" id="attach-show">添加附件</button>
+        <button class="btn btn-green" id="attach-show">Adding an attachment</button>
     </li>{{range .Files}}
     <li class="file" id="file-{{.Id}}">
         <span class="upload-time">{{DateInt64 .UploadTime "MM.DD"}}</span>
         <span class="size">{{FileSize .Size}}</span>
         <span class="name">{{.Name}}</span>
-        <a class="link" href="/{{.Url}}" target="_blank" title="/{{.Url}}">查看</a>
-        <a class="del fade-out" href="#" rel="{{.Id}}" title="删除附件">删除</a>
+        <a class="link" href="/{{.Url}}" target="_blank" title="/{{.Url}}">View</a>
+        <a class="del fade-out" href="#" rel="{{.Id}}" title="Delete an attachment">Delete</a>
     </li>{{end}}
     {{range .Pager.PageSlice}}
     <li class="item{{if eq $.Pager.Current .}} current{{end}}"><a href="/admin/files/?page={{.}}">{{.}}</a></li>{{end}}
@@ -20,7 +20,7 @@
     $(function () {
         initUpload("#attach-show");
         $(".del").on("click", function () {
-            if (confirm("删除附件相关链接会失效!")) {
+            if (confirm("Delete attachment links fail!")) {
                 var id = $(this).attr("rel");
                 $.ajax({
                     "type": "delete",

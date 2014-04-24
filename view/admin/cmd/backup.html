@@ -1,13 +1,13 @@
 <header class="cmd-header clear">
-    <h1 class="cmd-title left">备份数据</h1>
-    <button class="btn btn-blue left" id="backup-btn">备份</button>
+    <h1 class="cmd-title left">Back up your data</h1>
+    <button class="btn btn-blue left" id="backup-btn">Backup</button>
 </header>
 <ul class="cmd-list" id="backup-list">{{range .Files}}
     <li>
         <span class="time">{{DateTime .ModTime "MM.DD HH:mm"}}</span>
-        <span class="name">{{.Name}} <a class="link" href="/cmd/backup/file?file={{.Name}}">下载</a></span>
+        <span class="name">{{.Name}} <a class="link" href="/cmd/backup/file?file={{.Name}}">Download</a></span>
         <span class="size">{{FileSize .Size}}</span>
-        <a class="del" href="#" rel="{{.Name}}">删除</a>
+        <a class="del" href="#" rel="{{.Name}}">Delete</a>
     </li>{{end}}
 </ul>
 <script>
@@ -16,13 +16,13 @@
             $.ajax({
                 type: "post",
                 beforeSend: function () {
-                    $('.cmd-list').prepend('<li class="backup-loading">备份中..</li>');
+                    $('.cmd-list').prepend('<li class="backup-loading">Backup..</li>');
                     $('#backup-btn').hide();
                 },
                 success: function (json) {
                     if (json.res) {
                         $('.backup-loading').remove();
-                        $('.cmd-list').prepend('<li class="backup-result">刚刚备份到 ' + json.file + '</li>');
+                        $('.cmd-list').prepend('<li class="backup-result">Just back up to ' + json.file + '</li>');
                     } else {
                         alert(json.msg);
                     }

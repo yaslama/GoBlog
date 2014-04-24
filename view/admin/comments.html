@@ -7,10 +7,10 @@
                 <span class="c-time">{{DateInt64 .CreateTime "MM.DD HH:mm"}}</span>
                 <span class="c-email">{{.Email}}</span>{{if .GetContent}}
                 <span class="c-cnt">@{{.GetContent.Title}}</span>{{else}}
-                <span class="c-cnt">@无效</span>{{end}}{{if ne .Status "approved"}}
-                <a class="c-check" href="#" rel="{{.Id}}" title="审核">审核中</a>{{end}}
-                <a class="c-reply" href="#" rel="{{.Id}}" title="回复">回复</a>
-                <a class="c-del" href="#" rel="{{.Id}}" title="删除">删除</a>
+                <span class="c-cnt">@Invalid</span>{{end}}{{if ne .Status "approved"}}
+                <a class="c-check" href="#" rel="{{.Id}}" title="Audit">Audit</a>{{end}}
+                <a class="c-reply" href="#" rel="{{.Id}}" title="Reply to">Reply to</a>
+                <a class="c-del" href="#" rel="{{.Id}}" title="Delete">Delete</a>
             </div>
             <section class="c-content">{{Html .Content}}</section>{{if .ParentMd}}
             <div class="c-p-md markdown">{{Html .ParentMd}}</div>{{end}}
@@ -21,15 +21,15 @@
     </ul>
     <form id="comment-form" action="/admin/comments/" class="form clear left" method="post">
         <textarea class="ipt left" name="content" id="comment-content" required="required"></textarea>
-        <button class="btn btn-blue" id="comment-submit">回复评论</button>
-        <button class="btn btn-green" id="comment-close">关闭回复</button>
+        <button class="btn btn-blue" id="comment-submit">Reply to comment</button>
+        <button class="btn btn-green" id="comment-close">Close response</button>
         <input type="hidden" value="0" id="comment-parent" name="pid"/>
     </form>
 </div>
 <script>
     $(function () {
         $('.c-del').on("click", function () {
-            if (confirm("删除评论将使相关内容无效!")) {
+            if (confirm("Delete comments will make relevant content is not valid!")) {
                 var id = $(this).attr("rel");
                 $.ajax({
                     type: "delete",
@@ -38,7 +38,7 @@
                         if (json.res) {
                             $('#comment-' + id).remove();
                         } else {
-                            alert("删除失败");
+                            alert("Delete failed");
                         }
                     }
                 })
@@ -46,7 +46,7 @@
             return false;
         });
         $('.c-check').on("click", function () {
-            if (confirm("审核后此作者将不再标记审核!")) {
+            if (confirm("Review this author is no longer marked audit!")) {
                 var id = $(this).attr("rel");
                 $.ajax({
                     type: "put",
@@ -55,7 +55,7 @@
                         if (json.res) {
                             $('#comment-' + id).find(".c-check").remove();
                         } else {
-                            alert("审核失败");
+                            alert("Audit failure");
                         }
                     }
                 })
@@ -70,10 +70,10 @@
         });
         $('#comment-form').ajaxForm(function(json){
             if(json.res){
-                alert("已回复");
+                alert("Is back");
                 window.location.href = "/admin/comments/";
             }else{
-                alert("回复失败");
+                alert("Reply fail");
             }
         });
         $('#comment-close').on("click",function(){

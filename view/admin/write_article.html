@@ -4,40 +4,40 @@
 </style>
 <form id="article-form" class="form clear container" action="#" method="post">
     <div class="left grid-1-2">
-        <input class="ipt title" id="title" type="text" required="required" name="title" placeholder="文章标题"/>
-        <textarea name="content" id="content" class="ipt">撰写文章内容，支持`markdown`语法高亮</textarea>
+        <input class="ipt title" id="title" type="text" required="required" name="title" placeholder="The title of the article"/>
+        <textarea name="content" id="content" class="ipt">Writing article content，Support`markdown`Syntax highlighting</textarea>
     </div>
     <div class="left grid-1-2">
         <div class="preview markdown"></div>
     </div>
     <div class="form-vertical left">
-        <button class="btn btn-green left" type="button" id="attach-show">添加附件</button>
+        <button class="btn btn-green left" type="button" id="attach-show">Adding an attachment</button>
         <p class="item">
-            <span for="slug">固定链接</span>&nbsp;&nbsp;&nbsp;
-            <input id="slug" class="ipt" type="text" name="slug" required="required" placeholder="文章的唯一链接"/>
+            <span for="slug">Permalink</span>&nbsp;&nbsp;&nbsp;
+            <input id="slug" class="ipt" type="text" name="slug" required="required" placeholder="Only links to articles"/>
         </p>
         <p class="item">
-            <span>标签</span>&nbsp;&nbsp;
-            <input id="tag" class="ipt" type="text" name="tag" placeholder="文章的标签"/>
+            <span>Tag</span>&nbsp;&nbsp;
+            <input id="tag" class="ipt" type="text" name="tag" placeholder="Article tags"/>
         </p>
         <p class="item">
-            <span>保存状态</span>&nbsp;&nbsp;
+            <span>Save State</span>&nbsp;&nbsp;
             <select name="status" id="status">
-                <option value="publish">公开</option>
-                <option value="draft">草稿</option>
+                <option value="publish">Open</option>
+                <option value="draft">Draft</option>
             </select>
         </p>
         <p class="item">
-            <span>允许评论</span>&nbsp;&nbsp;
+            <span>Allow comments</span>&nbsp;&nbsp;
             <select name="comment" id="is-comment">
-                <option value="1">允许</option>
-                <option value="0">关闭</option>
+                <option value="1">Allow</option>
+                <option value="0">Shut down</option>
             </select>
         </p>
     </div>
     <p class="submit text-right" id="article-submit">
-        <span class="invalid lbl lbl-red hide" id="slug-invalid">固定链接由字母，数字和-组成</span>
-        <button class="btn btn-blue">保存文章</button>
+        <span class="invalid lbl lbl-red hide" id="slug-invalid">Fixed link by alphabet，Numbers, and-Composition</span>
+        <button class="btn btn-blue">Save articles</button>
     </p>
 </form>
 <form class="form hide" id="attach-form" action="/admin/files/upload/" enctype="multipart/form-data" method="post">
@@ -73,7 +73,7 @@
             }
             $('#article-form').ajaxSubmit(function (json) {
                 if (json.res) {
-                    alert("已保存");
+                    alert("Has been saved");
                     window.location.href = "/admin/articles/";
                 } else {
                     alert(json.msg);

@@ -2,44 +2,44 @@
     <div class="grid-1-5 left">
         <div class="welcome">
             <h4>Welcome</h4>
-            <p>欢迎回来， <strong>{{.User.Nick}}</strong></p>
+            <p>Welcome back， <strong>{{.User.Nick}}</strong></p>
         </div>
         <div class="quick-link">
-            <h4>快速链接</h4>
+            <h4>Quick links</h4>
             <ul>
-                <li><a href="/admin/article/write/">撰写文章</a></li>
-                <li><a href="/admin/page/write/">添加页面</a></li>
-                <li><a href="/admin/comments/">查看和审核评论</a></li>
-                <li><a href="/admin/setting/">修改配置</a></li>
-                <li><a href="/admin/profile/">更新个人资料</a></li>
+                <li><a href="/admin/article/write/">Written articles</a></li>
+                <li><a href="/admin/page/write/">Adding a page</a></li>
+                <li><a href="/admin/comments/">View and comment moderation</a></li>
+                <li><a href="/admin/setting/">Modify the configuration</a></li>
+                <li><a href="/admin/profile/">Updating personal information</a></li>
             </ul>
         </div>
     </div>
     <div class="grid-1-2 left">
         <div class="activity">
-            <h4>最新活动</h4>{{range .Messages}}
+            <h4>Latest activity</h4>{{range .Messages}}
             <div class="msg relative {{.Type}}">
                 <span class="time">{{DateInt64 .CreateTime "MM.DD HH:mm"}}</span>
                 <div class="data">{{Html .Data}}</div>
-                <a class="read absolute" href="/admin/message/read?id={{.Id}}" rel="{{.Id}}">隐藏</a>
+                <a class="read absolute" href="/admin/message/read?id={{.Id}}" rel="{{.Id}}">Hide</a>
             </div>{{end}}{{if lt (len .Messages) 1}}
-            <p>没有新的活动信息</p>
+            <p>No new information on the activities of</p>
             {{end}}
         </div>
     </div>
     <div class="grid-1-4 right">
         <div class="stats">
-            <h4>数据统计</h4>
-            <p>已经发布文章 <span class="lbl lbl-red">{{.Statis.Articles}}</span> 篇，
-            页面 <span class="lbl lbl-red">{{.Statis.Pages}}</span> 个， <br/>
-            收到评论 <span class="lbl lbl-blue">{{.Statis.Comments}}</span> 次，
-            上传 <span class="lbl lbl-green">{{.Statis.Files}}</span> 个附件，<br/>
-            评论者 <span class="lbl lbl-green">{{.Statis.Readers}}</span> 人</p>
-            <p>当前程序版本：<strong>{{.Statis.Version}}</strong></p>
+            <h4>Data and statistics</h4>
+            <p>Already published articles <span class="lbl lbl-red">{{.Statis.Articles}}</span> Review，
+            Page <span class="lbl lbl-red">{{.Statis.Pages}}</span> A， <br/>
+            The comments received <span class="lbl lbl-blue">{{.Statis.Comments}}</span> Times，
+            Upload <span class="lbl lbl-green">{{.Statis.Files}}</span> Annex，<br/>
+            Commentators <span class="lbl lbl-green">{{.Statis.Readers}}</span> People</p>
+            <p>The current version of the program：<strong>{{.Statis.Version}}</strong></p>
         </div>
         <div class="office">
-            <h4>官方消息</h4>
-            <p>还没有消息</p>
+            <h4>Official sources</h4>
+            <p>There is no news</p>
         </div>
     </div>
 </div>
