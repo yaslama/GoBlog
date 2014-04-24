@@ -14,7 +14,7 @@ func Admin(context *GoInk.Context) {
 	user := model.GetUserById(uid)
 	context.Layout("admin/admin")
 	context.Render("admin/home", map[string]interface{}{
-		"Title":    "控制台",
+		"Title":    "Console",
 		"Statis":   model.NewStatis(),
 		"User":     user,
 		"Messages": model.GetUnreadMessages(),
@@ -27,7 +27,7 @@ func AdminProfile(context *GoInk.Context) {
 	if context.Method == "POST" {
 		data := context.Input()
 		if !user.ChangeEmail(data["email"]) {
-			Json(context, false).Set("msg", "邮箱与别的用户重复").End()
+			Json(context, false).Set("msg", "Mailbox with another user repeat").End()
 			return
 		}
 		user.Name = data["user"]
@@ -44,7 +44,7 @@ func AdminProfile(context *GoInk.Context) {
 	}
 	context.Layout("admin/admin")
 	context.Render("admin/profile", map[string]interface{}{
-		"Title": "个性资料",
+		"Title": "Character information",
 		"User":  user,
 	})
 }
@@ -54,7 +54,7 @@ func AdminPassword(context *GoInk.Context) {
 		uid, _ := strconv.Atoi(context.Cookie("token-user"))
 		user := model.GetUserById(uid)
 		if !user.CheckPassword(context.String("old")) {
-			Json(context, false).Set("msg", "旧密码错误").End()
+			Json(context, false).Set("msg", "Old password is wrong").End()
 			return
 		}
 		user.ChangePassword(context.String("new"))
@@ -65,7 +65,7 @@ func AdminPassword(context *GoInk.Context) {
 	}
 	context.Layout("admin/admin")
 	context.Render("admin/password", map[string]interface{}{
-		"Title": "修改密码",
+		"Title": "Modify password",
 		//"User":user,
 	})
 }
@@ -74,7 +74,7 @@ func AdminArticle(context *GoInk.Context) {
 	articles, pager := model.GetArticleList(context.Int("page"), 10)
 	context.Layout("admin/admin")
 	context.Render("admin/articles", map[string]interface{}{
-		"Title":    "文章",
+		"Title":    "Articles",
 		"Articles": articles,
 		"Pager":    pager,
 	})
@@ -86,7 +86,7 @@ func ArticleWrite(context *GoInk.Context) {
 		c.Id = 0
 		data := context.Input()
 		if !c.ChangeSlug(data["slug"]) {
-			Json(context, false).Set("msg", "固定链接重复").End()
+			Json(context, false).Set("msg", "Permalink to repeat").End()
 			return
 		}
 		c.Title = data["title"]
@@ -112,7 +112,7 @@ func ArticleWrite(context *GoInk.Context) {
 	}
 	context.Layout("admin/admin")
 	context.Render("admin/write_article", map[string]interface{}{
-		"Title": "撰写文章",
+		"Title": "Written articles",
 	})
 }
 
@@ -131,7 +131,7 @@ func ArticleEdit(context *GoInk.Context) {
 	if context.Method == "POST" {
 		data := context.Input()
 		if !c.ChangeSlug(data["slug"]) {
-			Json(context, false).Set("msg", "固定链接重复").End()
+			Json(context, false).Set("msg", "Permalink to repeat").End()
 			return
 		}
 		c.Title = data["title"]
@@ -151,7 +151,7 @@ func ArticleEdit(context *GoInk.Context) {
 	}
 	context.Layout("admin/admin")
 	context.Render("admin/edit_article", map[string]interface{}{
-		"Title":   "编辑文章",
+		"Title":   "Editing an article",
 		"Article": c,
 	})
 }
@@ -162,7 +162,7 @@ func PageWrite(context *GoInk.Context) {
 		c.Id = 0
 		data := context.Input()
 		if !c.ChangeSlug(data["slug"]) {
-			Json(context, false).Set("msg", "固定链接重复").End()
+			Json(context, false).Set("msg", "Permalink to repeat").End()
 			return
 		}
 		c.Title = data["title"]
@@ -188,7 +188,7 @@ func PageWrite(context *GoInk.Context) {
 	}
 	context.Layout("admin/admin")
 	context.Render("admin/write_page", map[string]interface{}{
-		"Title": "撰写页面",
+		"Title": "Writing pages",
 	})
 }
 
@@ -196,7 +196,7 @@ func AdminPage(context *GoInk.Context) {
 	pages, pager := model.GetPageList(context.Int("page"), 10)
 	context.Layout("admin/admin")
 	context.Render("admin/pages", map[string]interface{}{
-		"Title": "页面",
+		"Title": "Page",
 		"Pages": pages,
 		"Pager": pager,
 	})
@@ -217,7 +217,7 @@ func PageEdit(context *GoInk.Context) {
 	if context.Method == "POST" {
 		data := context.Input()
 		if !c.ChangeSlug(data["slug"]) {
-			Json(context, false).Set("msg", "固定链接重复").End()
+			Json(context, false).Set("msg", "Permalink to repeat").End()
 			return
 		}
 		c.Title = data["title"]
@@ -237,7 +237,7 @@ func PageEdit(context *GoInk.Context) {
 	}
 	context.Layout("admin/admin")
 	context.Render("admin/edit_page", map[string]interface{}{
-		"Title": "编辑文章",
+		"Title": "Editing an article",
 		"Page":  c,
 	})
 }
@@ -260,7 +260,7 @@ func AdminSetting(context *GoInk.Context) {
 	}
 	context.Layout("admin/admin")
 	context.Render("admin/setting", map[string]interface{}{
-		"Title":      "配置",
+		"Title":      "Configuration",
 		"Custom":     model.GetCustomSettings(),
 		"Navigators": model.GetNavigators(),
 	})
@@ -338,7 +338,7 @@ func AdminComments(context *GoInk.Context) {
 	comments, pager := model.GetCommentList(page, 10)
 	context.Layout("admin/admin")
 	context.Render("admin/comments", map[string]interface{}{
-		"Title":    "评论",
+		"Title":    "Comments",
 		"Comments": comments,
 		"Pager":    pager,
 	})
@@ -371,7 +371,7 @@ func AdminPlugin(context *GoInk.Context) {
 	}
 	context.Layout("admin/admin")
 	context.Render("admin/plugin", map[string]interface{}{
-		"Title":   "插件",
+		"Title":   "Plug-in",
 		"Plugins": plugin.GetPlugins(),
 	})
 }
@@ -395,7 +395,7 @@ func PluginSetting(context *GoInk.Context) {
 	}
 	context.Layout("admin/admin")
 	context.Render("admin/plugin_setting", map[string]interface{}{
-		"Title": "插件 - " + p.Name(),
+		"Title": "Plug-in - " + p.Name(),
 		"Form":  p.Form(),
 	})
 }

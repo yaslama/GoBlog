@@ -70,11 +70,11 @@ func writeDefaultData() {
 	u.Id = Storage.TimeInc(10)
 	u.Name = "admin"
 	u.Password = utils.Sha1("adminxxxxx")
-	u.Nick = "管理员"
+	u.Nick = "Administrator"
 	u.Email = "admin@example.com"
 	u.Url = "http://example.com/"
 	u.CreateTime = utils.Now()
-	u.Bio = "这是站点的管理员，你可以添加一些个人介绍，支持换行不支持markdown"
+	u.Bio = "This is site administrator，You can add some personal introduction，Support line breaks do not supportmarkdown"
 	u.LastLoginTime = u.CreateTime
 	u.Role = "ADMIN"
 	Storage.Set("users", []*User{u})
@@ -85,9 +85,9 @@ func writeDefaultData() {
 	// write contents
 	a := new(Content)
 	a.Id = Storage.TimeInc(9)
-	a.Title = "欢迎使用 Fxh.Go"
+	a.Title = "Welcome to Fxh.Go"
 	a.Slug = "welcome-fxh-go"
-	a.Text = "如果您看到这篇文章,表示您的 blog 已经安装成功."
+	a.Text = "If you have read this article,Indicates that you blog Has been successfully installed."
 	a.Tags = []string{"Fxh.Go"}
 	a.CreateTime = utils.Now()
 	a.EditTime = a.CreateTime
@@ -105,7 +105,7 @@ func writeDefaultData() {
 	co.Author = u.Nick
 	co.Email = u.Email
 	co.Url = u.Url
-	co.Content = "欢迎加入使用 Fxh.Go"
+	co.Content = "Welcome to use Fxh.Go"
 	co.Avatar = utils.Gravatar(co.Email, "50")
 	co.Pid = 0
 	co.Ip = "127.0.0.1"
@@ -121,9 +121,9 @@ func writeDefaultData() {
 	// write pages
 	p := new(Content)
 	p.Id = a.Id + Storage.TimeInc(6)
-	p.Title = "关于"
+	p.Title = "With regard to"
 	p.Slug = "about-me"
-	p.Text = "本页面由 Fxh.Go 创建, 这只是个测试页面."
+	p.Text = "This page by Fxh.Go Create, This is just a test page."
 	p.Tags = []string{}
 	p.CreateTime = utils.Now()
 	p.EditTime = p.CreateTime
@@ -140,9 +140,9 @@ func writeDefaultData() {
 	Storage.Set("content/page-"+strconv.Itoa(p.Id), p)
 	p2 := new(Content)
 	p2.Id = p.Id + Storage.TimeInc(6)
-	p2.Title = "好友"
+	p2.Title = "Buddy"
 	p2.Slug = "friends"
-	p2.Text = "本页面由 Fxh.Go 创建, 这只是个测试页面."
+	p2.Text = "This page by Fxh.Go Create, This is just a test page."
 	p2.Tags = []string{}
 	p2.CreateTime = utils.Now()
 	p2.EditTime = p2.CreateTime
@@ -171,9 +171,9 @@ func writeDefaultData() {
 	// write settings
 	s := map[string]string{
 		"site_title":         "Fxh.Go",
-		"site_sub_title":     "Go开发的简单博客",
+		"site_sub_title":     "GoDevelopment of simple blog",
 		"site_keywords":      "Fxh.Go,Golang,Blog",
-		"site_description":   "Go语言开发的简单博客程序",
+		"site_description":   "GoSimple blog language development program",
 		"site_url":           "http://localhost/",
 		"article_size":       "4",
 		"site_theme":         "default",
@@ -195,18 +195,18 @@ func writeDefaultData() {
 	// write navigators
 	n := new(navItem)
 	n.Order = 1
-	n.Text = "文章"
-	n.Title = "文章"
+	n.Text = "Articles"
+	n.Title = "Articles"
 	n.Link = "/"
 	n2 := new(navItem)
 	n2.Order = 2
-	n2.Text = "关于"
-	n2.Title = "关于"
+	n2.Text = "With regard to"
+	n2.Title = "With regard to"
 	n2.Link = "/about-me.html"
 	n3 := new(navItem)
 	n3.Order = 3
-	n3.Text = "好友"
-	n3.Title = "好友"
+	n3.Text = "Buddy"
+	n3.Title = "Buddy"
 	n3.Link = "/friends.html"
 	Storage.Set("navigators", []*navItem{n, n2, n3})
 

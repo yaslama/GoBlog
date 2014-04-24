@@ -123,13 +123,13 @@ func generateCommentMessage(co interface{}) string {
 	cnt := GetContentById(c.Cid)
 	s := ""
 	if c.Pid < 1 {
-		s = "<p>" + c.Author + "同学，在文章《" + cnt.Title + "》发表评论："
+		s = "<p>" + c.Author + "Students，In the article《" + cnt.Title + "》Leave a comment："
 		s += utils.Html2str(c.Content) + "</p>"
 	} else {
 		p := GetCommentById(c.Pid)
-		s = "<p>" + p.Author + "同学，在文章《" + cnt.Title + "》的评论："
+		s = "<p>" + p.Author + "Students，In the article《" + cnt.Title + "》Comments："
 		s += utils.Html2str(p.Content) + "</p>"
-		s += "<p>" + c.Author + "同学的回复："
+		s += "<p>" + c.Author + "Student response："
 		s += utils.Html2str(c.Content) + "</p>"
 	}
 	return s
@@ -138,9 +138,9 @@ func generateCommentMessage(co interface{}) string {
 func generateBackupMessage(co interface{}) string {
 	str := co.(string)
 	if strings.HasPrefix(str, "[0]") {
-		return "备份全站失败: " + strings.TrimPrefix(str, "[0]") + "."
+		return "Backup failed: " + strings.TrimPrefix(str, "[0]") + "."
 	}
-	return "备份全站到 " + strings.TrimPrefix(str, "[1]") + " 成功."
+	return "Backup station " + strings.TrimPrefix(str, "[1]") + " Success."
 }
 
 func startMessageTimer() {

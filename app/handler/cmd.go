@@ -33,7 +33,7 @@ func CmdBackup(context *GoInk.Context) {
 	context.Layout("admin/cmd")
 	context.Render("admin/cmd/backup", map[string]interface{}{
 		"Files": files,
-		"Title": "备份",
+		"Title": "Backup",
 	})
 }
 
@@ -46,7 +46,7 @@ func CmdBackupFile(context *GoInk.Context) {
 func CmdMessage(context *GoInk.Context) {
 	context.Layout("admin/cmd")
 	context.Render("admin/cmd/message", map[string]interface{}{
-		"Title":    "消息",
+		"Title":    "News",
 		"Messages": model.GetMessages(),
 	})
 }
@@ -59,7 +59,7 @@ func CmdLogs(context *GoInk.Context) {
 	}
 	context.Layout("admin/cmd")
 	context.Render("admin/cmd/log", map[string]interface{}{
-		"Title": "日志",
+		"Title": "Log",
 		"Logs":  cmd.GetLogs(context.App()),
 	})
 }
@@ -67,7 +67,7 @@ func CmdLogs(context *GoInk.Context) {
 func CmdMonitor(ctx *GoInk.Context) {
 	ctx.Layout("admin/cmd")
 	ctx.Render("admin/cmd/monitor", map[string]interface{}{
-		"Title": "系统监控",
+		"Title": "System monitoring",
 		"M":     cmd.ReadMemStats(),
 	})
 }
@@ -91,7 +91,7 @@ func CmdTheme(ctx *GoInk.Context) {
 	}
 	ctx.Layout("admin/cmd")
 	ctx.Render("admin/cmd/theme", map[string]interface{}{
-		"Title":        "主题",
+		"Title":        "Theme",
 		"Themes":       cmd.GetThemes(ctx.App().Get("view_dir")),
 		"CurrentTheme": model.GetSetting("site_theme"),
 	})
@@ -106,7 +106,7 @@ func CmdReader(ctx *GoInk.Context) {
 	}
 	ctx.Layout("admin/cmd")
 	ctx.Render("admin/cmd/reader", map[string]interface{}{
-		"Title":   "读者",
+		"Title":   "Reader",
 		"Readers": model.GetReaders(),
 	})
 }

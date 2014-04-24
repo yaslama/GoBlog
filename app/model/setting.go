@@ -78,18 +78,18 @@ func SetNavigators(order []string, text []string, title []string, link []string)
 func DefaultNavigators() {
 	n := new(navItem)
 	n.Order = 1
-	n.Text = "文章"
-	n.Title = "文章"
+	n.Text = "Articles"
+	n.Title = "Articles"
 	n.Link = "/"
 	n2 := new(navItem)
 	n2.Order = 2
-	n2.Text = "关于"
-	n2.Title = "关于"
+	n2.Text = "With regard to"
+	n2.Title = "With regard to"
 	n2.Link = "/about-me.html"
 	n3 := new(navItem)
 	n3.Order = 3
-	n3.Text = "好友"
-	n3.Title = "好友"
+	n3.Text = "Buddy"
+	n3.Title = "Buddy"
 	n3.Link = "/friends.html"
 	navigators = []*navItem{n, n2, n3}
 	Storage.Set("navigators", navigators)

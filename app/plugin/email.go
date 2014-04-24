@@ -16,24 +16,24 @@ import (
 var (
 	// email template original from http://ben-lab.com/tech/1789.html
 	emailReplyTemplate = `<table style="width: 99.8%;height:99.8% "><tbody><tr><td style="background:#FAFAFA">
-    <div style="background-color:white;border-top:2px solid #0079BC;box-shadow:0 1px 3px #AAAAAA;line-height:180%;padding:0 15px 12px;width:500px;margin:50px auto;color:#555555;font-family:'Century Gothic','Trebuchet MS','Hiragino Sans GB',微软雅黑,'Microsoft Yahei',Tahoma,Helvetica,Arial,'SimSun',sans-serif;font-size:12px;">
-        <h2 style="border-bottom:1px solid #DDD;font-size:14px;font-weight:normal;padding:13px 0 10px 8px;"><span style="color: #0079bc;font-weight: bold;">&gt; </span>您在<a style="text-decoration:none;color: #e64346;" href="{{.link}}"> {{.site}} </a>上的留言有回复啦！</h2>
+    <div style="background-color:white;border-top:2px solid #0079BC;box-shadow:0 1px 3px #AAAAAA;line-height:180%;padding:0 15px 12px;width:500px;margin:50px auto;color:#555555;font-family:'Century Gothic','Trebuchet MS','Hiragino Sans GB',Microsoft yahei,'Microsoft Yahei',Tahoma,Helvetica,Arial,'SimSun',sans-serif;font-size:12px;">
+        <h2 style="border-bottom:1px solid #DDD;font-size:14px;font-weight:normal;padding:13px 0 10px 8px;"><span style="color: #0079bc;font-weight: bold;">&gt; </span>You<a style="text-decoration:none;color: #e64346;" href="{{.link}}"> {{.site}} </a>Message on reply！</h2>
         <div style="padding:0 12px 0 12px;margin-top:18px">
-            <p><strong>{{.author_p}}</strong> 同学，您曾在文章《{{.title}}》上发表评论:</p>
+            <p><strong>{{.author_p}}</strong> Students，You have in the article《{{.title}}》Comments on the:</p>
             <p style="background-color: #f5f5f5;border: 0px solid #DDD;padding: 10px 15px;margin:18px 0">{{.text_p}}</p>
-            <p><strong>{{.author}}</strong> 给您的回复如下:</p>
+            <p><strong>{{.author}}</strong> Your reply is as follows:</p>
             <p style="background-color: #f5f5f5;border: 0px solid #DDD;padding: 10px 15px;margin:18px 0">{{.text}}</p>
-            <p>您可以点击 <a style="text-decoration:none; color:#0079BC" href="{{.permalink}}">查看回复的完整內容 </a>，欢迎再次光临 <a style="text-decoration:none; color:#0079bc" href="{{.link}}">{{.site}} </a>。</p>
+            <p>You can click on the <a style="text-decoration:none; color:#0079BC" href="{{.permalink}}">See the reply to complete content </a>，Welcome again to <a style="text-decoration:none; color:#0079bc" href="{{.link}}">{{.site}} </a>。</p>
         </div>
     </div>
 </td></tr></tbody></table>`
 	emailCreatedTemplate = `<table style="width: 99.8%;height:99.8% "><tbody><tr><td style="background:#FAFAFA">
-    <div style="background-color:white;border-top:2px solid #0079BC;box-shadow:0 1px 3px #AAAAAA;line-height:180%;padding:0 15px 12px;width:500px;margin:50px auto;color:#555555;font-family:'Century Gothic','Trebuchet MS','Hiragino Sans GB',微软雅黑,'Microsoft Yahei',Tahoma,Helvetica,Arial,'SimSun',sans-serif;font-size:12px;">
-        <h2 style="border-bottom:1px solid #DDD;font-size:14px;font-weight:normal;padding:13px 0 10px 8px;"><span style="color: #0079bc;font-weight: bold;">&gt; </span>{{.author}} 在<a style="text-decoration:none;color: #e64346;" href="{{.link}}"> {{.site}} </a>上的文章 《{{.title}}》 发表了评论！</h2>
+    <div style="background-color:white;border-top:2px solid #0079BC;box-shadow:0 1px 3px #AAAAAA;line-height:180%;padding:0 15px 12px;width:500px;margin:50px auto;color:#555555;font-family:'Century Gothic','Trebuchet MS','Hiragino Sans GB',Microsoft yahei,'Microsoft Yahei',Tahoma,Helvetica,Arial,'SimSun',sans-serif;font-size:12px;">
+        <h2 style="border-bottom:1px solid #DDD;font-size:14px;font-weight:normal;padding:13px 0 10px 8px;"><span style="color: #0079bc;font-weight: bold;">&gt; </span>{{.author}} In<a style="text-decoration:none;color: #e64346;" href="{{.link}}"> {{.site}} </a>Articles on the 《{{.title}}》 Commented on the！</h2>
         <div style="padding:0 12px 0 12px;margin-top:18px">
-            <p><strong>{{.author}}</strong> 同学，在文章《{{.title}}》上发表评论:</p>
+            <p><strong>{{.author}}</strong> Students，In the article《{{.title}}》Comments on the:</p>
             <p style="background-color: #f5f5f5;border: 0px solid #DDD;padding: 10px 15px;margin:18px 0">{{.text}}</p>
-            <p>您可以点击 <a style="text-decoration:none; color:#0079BC" href="{{.permalink}}">查看完整內容 </a>，欢迎再次光临 <a style="text-decoration:none; color:#0079bc" href="{{.link}}">{{.site}} </a>。</p>
+            <p>You can click on the <a style="text-decoration:none; color:#0079BC" href="{{.permalink}}">View complete contents </a>，Welcome again to <a style="text-decoration:none; color:#0079bc" href="{{.link}}">{{.site}} </a>。</p>
         </div>
     </div>
 </td></tr></tbody></table>`
@@ -69,7 +69,7 @@ func init() {
 
 // Name returns email plugin name
 func (p *EmailPlugin) Name() string {
-	return "邮件提醒"
+	return "Email alerts"
 }
 
 // Key returns email plugin unique key.
@@ -79,7 +79,7 @@ func (p *EmailPlugin) Key() string {
 
 // Desc returns email plugin descripition.
 func (p *EmailPlugin) Desc() string {
-	return "评论及回复等邮件提醒"
+	return "Comment and reply email alerts"
 }
 
 // ToStorage creates plugin storage map for plugin list json.
@@ -158,24 +158,24 @@ func (p *EmailPlugin) HasSetting() bool {
 // Form returns the form template string for email plugin.
 func (p *EmailPlugin) Form() string {
 	return `<h4 class="title">
-        SMTP 邮箱提醒设置
+        SMTP Email alert settings
     </h4>
     <p class="item">
-        <label for="smtp-addr">SMTP服务器</label>
-        <input class="ipt" id="smtp-addr" type="text" name="smtp_host" placeholder="SMTP服务器地址，如 smtp.gmail.com:465" value="` + p.settings["smtp_host"] + `"/>
+        <label for="smtp-addr">SMTPServer</label>
+        <input class="ipt" id="smtp-addr" type="text" name="smtp_host" placeholder="SMTPServer address，Such as smtp.gmail.com:465" value="` + p.settings["smtp_host"] + `"/>
     </p>
     <p class="item">
-        <label for="smtp-email">SMTP邮箱</label>
-        <input class="ipt" id="smtp-email" type="email" name="smtp_email_user" placeholder="使用SMTP的邮箱" value="` + p.settings["smtp_email_user"] + `"/>
+        <label for="smtp-email">SMTPMailbox</label>
+        <input class="ipt" id="smtp-email" type="email" name="smtp_email_user" placeholder="UseSMTPMailbox" value="` + p.settings["smtp_email_user"] + `"/>
     </p>
     <p class="item">
-        <label for="smtp-password">邮箱密码</label>
-        <input class="ipt" id="smtp-password" type="text" name="smtp_email_password" placeholder="邮箱密码" value="` + p.settings["smtp_email_password"] + `"/>
+        <label for="smtp-password">Mailbox password</label>
+        <input class="ipt" id="smtp-password" type="text" name="smtp_email_password" placeholder="Mailbox password" value="` + p.settings["smtp_email_password"] + `"/>
     </p>
     <p class="submit item">
         <label>&nbsp;</label>
-        <button class="btn btn-blue">保存设置</button>
-        <span class="tip">暂不支持验证，请自行保证正确</span>
+        <button class="btn btn-blue">Save your settings</button>
+        <span class="tip">Not support validation，Please go to ensure the correct</span>
     </p>`
 }
 
@@ -223,7 +223,7 @@ func (p *EmailPlugin) sendEmail(co *model.Comment, isCreate bool) {
 		user = model.GetUsersByRole("ADMIN")[0]
 		from = mail.Address{"no-reply@" + model.GetSetting("site_url"), p.settings["smtp_email_user"]}
 		to = mail.Address{user.Nick, user.Email}
-		title = co.Author + "在您的网站发表新评论"
+		title = co.Author + "Your site post a new comment"
 		p.sendSmtp(from, to, title, buff.Bytes())
 		return
 	}
@@ -248,7 +248,7 @@ func (p *EmailPlugin) sendEmail(co *model.Comment, isCreate bool) {
 
 	from = mail.Address{pco.Author + "@" + model.GetSetting("site_url"), p.settings["smtp_email_user"]}
 	to = mail.Address{pco.Author, pco.Email}
-	title = "您的评论有了回复"
+	title = "Your comment reply"
 	p.sendSmtp(from, to, title, buff.Bytes())
 	// send email to notice admin new comment creation
 	// this comment is a reply comment
@@ -260,7 +260,7 @@ func (p *EmailPlugin) sendEmail(co *model.Comment, isCreate bool) {
 				"link":      model.GetSetting("site_url"),
 				"site":      model.GetSetting("site_title"),
 				"author":    co.Author,
-				"text":      template.HTML("回复" + pco.Author + ":<br/>" + co.Content),
+				"text":      template.HTML("Reply to" + pco.Author + ":<br/>" + co.Content),
 				"title":     content.Title,
 				"permalink": path.Join(model.GetSetting("site_url"), content.Link()),
 			})
@@ -271,7 +271,7 @@ func (p *EmailPlugin) sendEmail(co *model.Comment, isCreate bool) {
 			user = model.GetUsersByRole("ADMIN")[0]
 			from = mail.Address{"no-reply@" + model.GetSetting("site_url"), p.settings["smtp_email_user"]}
 			to = mail.Address{user.Nick, user.Email}
-			title = co.Author + "在您的网站发表新评论"
+			title = co.Author + "Your site post a new comment"
 			p.sendSmtp(from, to, title, buff.Bytes())
 		}()
 	}

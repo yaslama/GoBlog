@@ -22,7 +22,7 @@ func AdminFiles(context *GoInk.Context) {
 	files, pager := model.GetFileList(context.Int("page"), 10)
 	context.Layout("admin/admin")
 	context.Render("admin/files", map[string]interface{}{
-		"Title": "媒体文件",
+		"Title": "Media files",
 		"Files": files,
 		"Pager": pager,
 	})
@@ -45,11 +45,11 @@ func FileUpload(context *GoInk.Context) {
 		h = nil
 	}()
 	if len(data) >= maxSize {
-		Json(context, false).Set("msg", "文件应小于10M").End()
+		Json(context, false).Set("msg", "Files should be less than10M").End()
 		return
 	}
 	if !strings.Contains(context.App().Config().String("app.upload_files"), path.Ext(h.Filename)) {
-		Json(context, false).Set("msg", "文件只支持Office文件，图片和zip存档").End()
+		Json(context, false).Set("msg", "File supportOfficeFile，Pictures andzipArchive").End()
 		return
 	}
 	ff := new(model.File)

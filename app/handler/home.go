@@ -86,7 +86,7 @@ func Home(context *GoInk.Context) {
 		"SidebarHtml": SidebarHtml(context),
 	}
 	if page > 1 {
-		data["Title"] = "第 " + strconv.Itoa(page) + " 页"
+		data["Title"] = "Subsection " + strconv.Itoa(page) + " Page"
 	}
 	Theme(context).Layout("home").Render("index", data)
 }
@@ -183,13 +183,13 @@ func Comment(context *GoInk.Context) {
 
 func validateComment(data map[string]string) string {
 	if utils.IsEmptyString(data["user"]) || utils.IsEmptyString(data["content"]) {
-		return "称呼，邮箱，内容必填"
+		return "Call，Mailbox，Content required"
 	}
 	if !utils.IsEmail(data["email"]) {
-		return "邮箱格式错误"
+		return "Mailbox format error"
 	}
 	if !utils.IsEmptyString(data["url"]) && !utils.IsURL(data["url"]) {
-		return "网址格式错误"
+		return "Error in URL format"
 	}
 	return ""
 }

@@ -27,7 +27,7 @@ func (p *HelloPlugin) Key() string {
 }
 
 func (p *HelloPlugin) Desc() string {
-	return "插件样例，页面最后输出执行时间 <!-- excute time --> 注释"
+	return "Plug-in sample，Final output page execution time <!-- excute time --> Comment"
 }
 
 func (p *HelloPlugin) ToStorage() map[string]interface{} {

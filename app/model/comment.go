@@ -68,7 +68,7 @@ func (c *Comment) ParentMd() string {
 	}
 	co := GetCommentById(c.Pid)
 	if co == nil {
-		return "> 已失效"
+		return "> Defunct"
 	}
 	str := "> @" + co.Author + "\n\n"
 	str += "> " + co.Content + "\n"
