@@ -1,5 +1,22 @@
 #Fxh.Go
 
+##Change in this fork
+Translated html and code to English
+Changed the imports to point to this fork (oyvindsk/GoBlog/..)
+Listening on all interfaces (couldn't get the config file to work)
+
+
+###Run
+Set up the GOPATH etc.
+Clone ..
+cd .. && go get
+cd some-dir
+$GOPATH/bin/GoBlog
+cp -r ~/gocode/src/github.com/oyvindsk/GoBlog/view/ . # cp the view/ directory
+$GOPATH/bin/GoBlog
+
+##About
+
 A fast and simple blog engine with [GoInk](https://github.com/fuxiaohei/GoInk) framework in Golang.
 
 [![Build Status](https://drone.io/github.com/fuxiaohei/GoBlog/status.png)](https://drone.io/github.com/fuxiaohei/GoBlog/latest)
