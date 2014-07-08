@@ -30,8 +30,6 @@ func init() {
 	// init application
 	App = GoInk.New()
 
-	App.Set("server", ":9001")
-
 	// init some settings
 	App.Config().StringOr("app.static_dir", "static")
 	App.Config().StringOr("app.log_dir", "tmp/log")
