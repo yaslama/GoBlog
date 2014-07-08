@@ -1,9 +1,9 @@
 package handler
 
 import (
-	"github.com/oyvindsk/GoBlog/app/cmd"
-	"github.com/oyvindsk/GoBlog/app/model"
 	"github.com/fuxiaohei/GoInk"
+	"github.com/yaslama/GoBlog/app/cmd"
+	"github.com/yaslama/GoBlog/app/model"
 )
 
 func CmdBackup(context *GoInk.Context) {

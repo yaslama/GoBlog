@@ -2,8 +2,8 @@ package model
 
 import (
 	"fmt"
-	"github.com/oyvindsk/GoBlog/app/utils"
 	"github.com/fuxiaohei/GoInk"
+	"github.com/yaslama/GoBlog/app/utils"
 )
 
 var tokens map[string]*Token

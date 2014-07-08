@@ -2,7 +2,7 @@ package model
 
 import (
 	"encoding/json"
-	"github.com/oyvindsk/GoBlog/app/utils"
+	"github.com/yaslama/GoBlog/app/utils"
 	"io/ioutil"
 	"os"
 	"path"

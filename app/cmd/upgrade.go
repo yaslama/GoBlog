@@ -1,8 +1,8 @@
 package cmd
 
 import (
-	"github.com/oyvindsk/GoBlog/app/model"
 	"github.com/fuxiaohei/GoInk"
+	"github.com/yaslama/GoBlog/app/model"
 	"sort"
 	"strconv"
 )

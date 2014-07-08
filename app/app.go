@@ -2,11 +2,11 @@ package app
 
 import (
 	"fmt"
-	"github.com/oyvindsk/GoBlog/app/handler"
-	"github.com/oyvindsk/GoBlog/app/model"
-	"github.com/oyvindsk/GoBlog/app/plugin"
-	"github.com/oyvindsk/GoBlog/app/utils"
 	"github.com/fuxiaohei/GoInk"
+	"github.com/yaslama/GoBlog/app/handler"
+	"github.com/yaslama/GoBlog/app/model"
+	"github.com/yaslama/GoBlog/app/plugin"
+	"github.com/yaslama/GoBlog/app/utils"
 	"net/http"
 	"os"
 	"os/signal"
@@ -30,7 +30,7 @@ func init() {
 	// init application
 	App = GoInk.New()
 
-    App.Set("server", ":9001")
+	App.Set("server", ":9001")
 
 	// init some settings
 	App.Config().StringOr("app.static_dir", "static")

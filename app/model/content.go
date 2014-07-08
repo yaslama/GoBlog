@@ -3,7 +3,7 @@ package model
 import (
 	"errors"
 	"fmt"
-	"github.com/oyvindsk/GoBlog/app/utils"
+	"github.com/yaslama/GoBlog/app/utils"
 	"net/url"
 	"os"
 	"path/filepath"

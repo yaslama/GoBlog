@@ -1,9 +1,9 @@
 package handler
 
 import (
-	"github.com/oyvindsk/GoBlog/app/model"
-	"github.com/oyvindsk/GoBlog/app/utils"
 	"github.com/fuxiaohei/GoInk"
+	"github.com/yaslama/GoBlog/app/model"
+	"github.com/yaslama/GoBlog/app/utils"
 	"strings"
 	"time"
 )
